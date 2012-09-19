@@ -36,11 +36,6 @@ public class IntegrationTest {
     }
 
     @Test
-    public void testMain() {
-        App.main(null);
-    }
-
-    @Test
     public void storeAnAccountTest() {
         storeTwoAccounts();
     }
