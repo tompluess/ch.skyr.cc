@@ -14,6 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import ch.skyr.costcontrol.entities.Account;
+import ch.skyr.costcontrol.entities.Currency;
 import ch.skyr.costcontrol.entities.MonetaryAccount;
 import ch.skyr.costcontrol.entities.Money;
 import ch.skyr.costcontrol.entities.Position;
@@ -41,7 +42,7 @@ public class DataProviderTest {
         final Position firstPosition = new Position();
         firstPosition.setOriginAccount(firstAccount);
         firstPosition.setName("first position");
-        firstPosition.setAmount(new Money(5.5, Money.Currency.CHF));
+        firstPosition.setAmount(new Money(5.5, Currency.CHF));
         firstPosition.setPositionType(PositionType.CONFIRMED);
         firstPosition.setValutaDate(new GregorianCalendar(2012, 2, 12).getTime());
         em.persist(firstPosition);

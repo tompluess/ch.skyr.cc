@@ -2,13 +2,20 @@ package ch.skyr.costcontrol.entities;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Basic;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+
+import org.apache.tapestry5.beaneditor.Validate;
 @Embeddable
 public class Money {
+    @Basic(optional = false)
+    @Validate("required")
     @Enumerated(EnumType.STRING)
     private Currency currency;
+    @Basic(optional = false)
+    @Validate("required")
     private BigDecimal amount;
 
     public Money() {
@@ -38,10 +45,6 @@ public class Money {
 
     public void setAmount(final BigDecimal amount) {
         this.amount = amount;
-    }
-
-    public enum Currency {
-        CHF, EUR
     }
 
     @Override

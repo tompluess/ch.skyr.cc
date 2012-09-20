@@ -2,8 +2,11 @@ package ch.skyr.costcontrol.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,6 +35,10 @@ public abstract class Account implements Serializable {
     @Column(nullable = false)
     @Validate("required")
     private AccountActive active = AccountActive.ACTIVE; // default value
+    @Basic(optional = false)
+    @Validate("required")
+    @Enumerated(EnumType.STRING)
+    private Currency currency = Currency.CHF; // default value
 
     public Account() {
         super();
@@ -59,6 +66,14 @@ public abstract class Account implements Serializable {
 
     public void setActive(final AccountActive active) {
         this.active = active;
+    }
+
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(final Currency currency) {
+        this.currency = currency;
     }
 
     public enum AccountActive {

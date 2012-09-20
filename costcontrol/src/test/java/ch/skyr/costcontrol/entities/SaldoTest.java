@@ -41,7 +41,7 @@ public class SaldoTest {
         em.persist(account);
         final Saldo saldo = new Saldo();
         saldo.setMonetaryAccount(account);
-        saldo.setAmount(new Money(99.50, Money.Currency.CHF));
+        saldo.setAmount(new Money(99.50, Currency.CHF));
         saldo.setPositionType(PositionType.GUESS);
         saldo.setValutaDate(new GregorianCalendar(2013, 12, 31).getTime());
         em.persist(saldo);

@@ -1,9 +1,6 @@
 package ch.skyr.costcontrol;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
-import java.util.Locale;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,6 +12,7 @@ import org.junit.Test;
 import ch.skyr.costcontrol.core.DataProvider;
 import ch.skyr.costcontrol.entities.Account;
 import ch.skyr.costcontrol.entities.Account.AccountActive;
+import ch.skyr.costcontrol.entities.Currency;
 import ch.skyr.costcontrol.entities.MonetaryAccount;
 import ch.skyr.costcontrol.entities.Money;
 import ch.skyr.costcontrol.entities.Position;
@@ -23,7 +21,6 @@ public class IntegrationTest {
     public static final String TEST_ACCOUNT_NAME_INACTIVE = "test account";
     public static final String TEST_ACCOUNT_NAME_CASH = "Cash";
     private static EntityManager entityManager;
-    private final transient DateFormat dateParser = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", new Locale("de", "CH"));
     private Long lastAccountPk;
 
     /**
@@ -71,7 +68,7 @@ public class IntegrationTest {
         pos.setName("Test Position");
         pos.setTargetAccount(account1);
         pos.setOriginAccount(account2);
-        pos.setAmount(new Money(5.5, Money.Currency.CHF));
+        pos.setAmount(new Money(5.5, Currency.CHF));
         pos.setPositionType(PositionType.CONFIRMED);
         pos.setValutaDate(new GregorianCalendar(2012, 2, 12).getTime());
         entityManager.persist(pos);
