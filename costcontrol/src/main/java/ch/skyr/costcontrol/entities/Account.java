@@ -14,8 +14,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.TableGenerator;
 
-import org.apache.tapestry5.beaneditor.NonVisual;
-import org.apache.tapestry5.beaneditor.Validate;
+import com.google.common.base.Objects;
 /**
  * Entity implementation class for Entity: Account
  * 
@@ -27,16 +26,12 @@ public abstract class Account implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "account_seq")
-    @NonVisual
     private Long id;
     @Column(nullable = false, length = 250)
-    @Validate("required")
     private String name;
     @Column(nullable = false)
-    @Validate("required")
     private AccountActive active = AccountActive.ACTIVE; // default value
     @Basic(optional = false)
-    @Validate("required")
     @Enumerated(EnumType.STRING)
     private Currency currency = Currency.CHF; // default value
 
@@ -108,5 +103,13 @@ public abstract class Account implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)//
+            .add("ID", getId())//
+            .add("Name", getName())//
+            .toString();
     }
 }

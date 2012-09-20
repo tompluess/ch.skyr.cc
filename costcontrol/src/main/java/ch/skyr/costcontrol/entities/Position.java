@@ -13,9 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.apache.tapestry5.beaneditor.NonVisual;
-import org.apache.tapestry5.beaneditor.Validate;
 /**
  * Entity implementation class for Entity: Position
  */
@@ -26,25 +23,19 @@ public class Position implements Serializable {
     static final String SEQUENCE_NAME = "position_seq";
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = SEQUENCE_NAME)
-    @NonVisual
     private Long id;
     @Basic(optional = false)
     @Column(nullable = false, length = 250)
-    @Validate("required")
     private String name;
-    @Validate("required")
     @Basic(optional = false)
     @ManyToOne
     private Account originAccount;
     @Basic(optional = false)
     @ManyToOne
-    @Validate("required")
     private Account targetAccount;
     @Basic(optional = false)
-    @Validate("required")
     private Money amount;
     @Basic(optional = false)
-    @Validate("required")
     private PositionType positionType;
     @Basic(optional = false)
     @Temporal(TemporalType.DATE)

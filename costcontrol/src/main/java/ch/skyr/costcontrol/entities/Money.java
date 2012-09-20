@@ -7,15 +7,13 @@ import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import org.apache.tapestry5.beaneditor.Validate;
+import com.google.common.base.Objects;
 @Embeddable
 public class Money {
     @Basic(optional = false)
-    @Validate("required")
     @Enumerated(EnumType.STRING)
     private Currency currency;
     @Basic(optional = false)
-    @Validate("required")
     private BigDecimal amount;
 
     public Money() {
@@ -79,5 +77,13 @@ public class Money {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)//
+            .addValue(getCurrency())//
+            .addValue(getAmount())//
+            .toString();
     }
 }

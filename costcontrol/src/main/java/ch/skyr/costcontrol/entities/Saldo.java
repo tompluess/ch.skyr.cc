@@ -15,8 +15,7 @@ import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.apache.tapestry5.beaneditor.NonVisual;
-import org.apache.tapestry5.beaneditor.Validate;
+import com.google.common.base.Objects;
 @Entity
 @TableGenerator(name = Saldo.SEQUENCE_NAME, initialValue = 0, allocationSize = 20)
 public class Saldo {
@@ -24,18 +23,14 @@ public class Saldo {
     static final String SEQUENCE_NAME = "saldo_seq";
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = SEQUENCE_NAME)
-    @NonVisual
     private Long id;
     @Column(length = 250)
     private String description;
-    @Validate("required")
     @ManyToOne
     @Basic(optional = false)
     private MonetaryAccount monetaryAccount;
-    @Validate("required")
     @Basic(optional = false)
     private Money amount;
-    @Validate("required")
     @Basic(optional = false)
     @Enumerated(EnumType.STRING)
     private PositionType positionType;
@@ -96,5 +91,15 @@ public class Saldo {
 
     public Long getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)//
+            .add("ID", getId())//
+            .add("Account", getMonetaryAccount())//
+            .add("Amount", getAmount())//
+            .add("Type", getPositionType())//
+            .toString();
     }
 }
