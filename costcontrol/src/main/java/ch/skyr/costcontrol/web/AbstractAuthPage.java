@@ -54,7 +54,7 @@ public abstract class AbstractAuthPage extends WebPage {
         final ExternalLink signOut = new ExternalLink("sign-out", getUserService().createLogoutURL("/" + getRequest().getClientUrl()));
         add(new BookmarkablePageLink<ProfilePage>("navProfile", ProfilePage.class));
         //add(new BookmarkablePageLink<SearchPage>("navSearch", SearchPage.class));
-        //        add(signOut);
+        add(signOut);
         link.add(userName);
         add(link);
     }

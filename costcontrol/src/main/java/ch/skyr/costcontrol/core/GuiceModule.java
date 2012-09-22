@@ -1,6 +1,7 @@
 package ch.skyr.costcontrol.core;
 
-import ch.skyr.costcontrol.services.UserService;
+import ch.skyr.costcontrol.queries.ProfileQueries;
+import ch.skyr.costcontrol.services.HqlProfileQueries;
 
 import com.google.inject.persist.PersistFilter;
 import com.google.inject.persist.jpa.JpaPersistModule;
@@ -38,7 +39,6 @@ public class GuiceModule extends ServletModule {
         install(new JpaPersistModule(DataProvider.PERSISTENCE_UNIT_NAME));
         filter("/*").through(PersistFilter.class);
         //
-        bind(UserService.class).to(UserService.class);
-        bind(DataProvider.class).to(DataProvider.class);
+        bind(ProfileQueries.class).to(HqlProfileQueries.class);
     }
 }
