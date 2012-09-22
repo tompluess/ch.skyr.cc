@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"
+	xml:lang="en" lang="en">
+<head>
+<title>My Profile</title>
+<link type="text/css" rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+
+	<wicket:extend>
+		<div id="profile-content">
+			<h1>My Profile</h1>
+			<table id="profile-table1">
+			<tr>
+				<td style="text-align:left;vertical-align:middle;height:55px;">
+				 	<!--  <img src="img/pawn_glass_blue.png" style="padding-right:5px"></img> -->
+				 	<label style="color:#193543;text-transform:uppercase; font-size: 28px;font-weight: bold;"
+					wicket:id="profile.labelName">Vorname Nachname</label>  	
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!--  <img src="img/desk.png" style="padding-right:5px"/> -->
+					<label wicket:id="profile.profession"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!--  <img src="img/earth_location (1).png" style="padding-right:5px"/> -->
+					<label wicket:id="profile.address"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<i>"<label style="font-size:20px;font-family:Times New Roman,Georgia,Serif;"wicket:id="profile.description"/>"</i>
+				</td>
+			</tr>
+			
+			</table>   
+			<br></br>		
+			<div wicket:id="tagCloudProfile"></div>	
+			<br /> <br /> <br /> <br />
+
+			<div wicket:id="svgTest"></div>
+		</div>
+	</wicket:extend>
+
+</body>
+</html>

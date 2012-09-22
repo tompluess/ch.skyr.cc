@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"
+	xml:lang="en" lang="en">
+<head>
+<title>Cost Control</title>
+<link type="text/css" rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+
+	<div id="auth-header">
+
+		<div id="home-header-logo">
+			<img src="img/question_and_answer.png" height="75px" width="75px"/>
+		</div>
+		
+		<div id="home-header-title">
+			<img src="img/title.png" />
+		</div>
+		
+		<div id="home-title-links">
+			<a style="color:white;" href="#" wicket:id="linkProfileEditPage"><span
+				wicket:id="username" /></a> - <a wicket:id="sign-out" href="#">Logout</a>
+		</div>
+	</div>
+	<div id="auth-body">
+		<div>
+			<div id="auth-navigation">
+				<div style="text-align:center" id="auth-navigation-profile">
+					<div style="float:left;padding:5px;">
+						<a href="#" wicket:id="navProfile"><img src="img/scientist.png" /></a>
+						<div id="auth-navigation-text">
+							My Profile
+						</div>
+					</div>
+					<div wicket:id="auth-nav-profile" class="auth-navigation-chevron" >				
+					</div>
+				</div>
+				
+				<div style="text-align:center" id="auth-navigation-skills">
+					<div style="float:left;padding:5px;">
+						<a href="#" wicket:id="navSkills"><img src="img/graduation_hat.png" /></a>
+						<div id="auth-navigation-text">
+							My Skills
+						</div>
+						
+					</div>
+					<div wicket:id="auth-nav-skills" class="auth-navigation-chevron">				
+					</div>
+				</div>
+				
+				<div style="text-align:center" id="auth-navigation-search">
+					<div style="float:left;padding:5px;">
+						<a href="#" wicket:id="navSearch"><img src="img/binocular.png"  /></a>			
+						<div id="auth-navigation-text">
+							Search
+						</div>
+					</div>
+					<div wicket:id="auth-nav-search" class="auth-navigation-chevron">				
+					</div>	
+				</div>					
+			</div>
+			<div id="auth-content">
+				<wicket:child />
+			</div>
+			<div id="auth-right" style="float:right; margin:5px;"><br/><br/>
+				<panel wicket:id="userSkillProposal">Skills Input Form</panel>
+			</div>
+		</div>
+		<br style="clear:both"/><div id="footer">skyr.ch - Cost Control</div>
+	</div>
+</body>
+</html>

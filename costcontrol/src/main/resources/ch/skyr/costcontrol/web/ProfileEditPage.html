@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"
+	xml:lang="en" lang="en">
+<head>
+<title>My Profile</title>
+<link type="text/css" rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+
+	<wicket:extend>
+		<h1>
+			Edit your profile: <label style="font-size:20px" wicket:id="labelNickname" />
+		</h1>
+		<form wicket:id="formEditProfile">
+		<div wicket:id="feedback" class="editprofile"></div>
+			<table>
+				<tr>
+					<td>Firstname</td>
+					<td><input class="inputfield" wicket:id="firstname" type="text" /></td>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td><input class="inputfield" wicket:id="name" type="text" /></td>
+				</tr>
+                <tr>
+                    <td>Profession</td>
+                    <td><input class="inputfield" wicket:id="profession" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input class="inputfield" wicket:id="address" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Some words about you</td>
+                    <td><textarea class="inputfield" rows="4" wicket:id="description"  /></td>
+                </tr>
+				<tr>
+					<td><input type="submit" value="Save"/></td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</form>
+		 
+	</wicket:extend>
+</body>
+</html>
